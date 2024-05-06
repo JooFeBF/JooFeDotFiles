@@ -1,6 +1,8 @@
 return {
   -- add gruvbox
-  { "navarasu/onedark.nvim" },
+  { "navarasu/onedark.nvim", opts = {
+    transparent = true,
+  } },
 
   -- Configure LazyVim to load gruvbox
   {

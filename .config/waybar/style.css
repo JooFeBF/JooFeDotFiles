@@ -1,0 +1,290 @@
+@import "/home/joofe/.cache/wal/colors-waybar.css";
+
+* {
+    font-family: 'Jetbrains Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+window#waybar {
+    background-color: @color0;
+    border: 3px solid @color1;
+    border-radius: 12px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #00000;
+    border: none;
+}*/
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 0 @color5;
+}
+
+#workspaces{
+}
+
+#workspaces button {
+    padding: 4px 2px;
+    background-color: transparent;
+    color: @color2;
+}
+
+#workspaces button:hover {
+    color: @color4;
+}
+
+#workspaces button.focused, #workspaces button.active {
+    color: @color5;
+}
+
+#workspaces button.urgent {
+    color: @color8;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#language,
+#tray,
+#keyboard-state,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpris,
+#custom-year,
+#custom-yearp,
+#custom-fafo {
+    color: @color5;
+}
+
+#window {
+    color: @color5;
+    padding-left: 10px;
+}
+
+#mode, #submap {
+    color: @color14;
+}
+
+#window,
+#workspaces {
+    background-color: transparent;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+}
+
+#battery {
+}
+
+#battery.charging, #battery.plugged {
+    color: @color11;
+}
+
+@keyframes blink {
+    to {
+        color: @color2;
+    }
+}
+
+#battery.warning:not(.charging) {
+    color: @color9;
+  }
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    color: @color8;
+    /*animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;*/
+}
+
+#power-profiles-daemon {
+}
+
+#power-profiles-daemon.performance {
+    color: @color8;
+    border: 2px solid @color8;
+}
+
+#power-profiles-daemon.balanced {
+    color: @color5;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @color11;
+}
+
+label:focus {
+    background-color: @color1;
+}
+
+#cpu {
+    color: @color5;
+}
+
+#memory {
+    color: @color5;
+}
+
+#disk {
+    color: @color5;
+}
+
+#backlight {
+    color: @color10;
+}
+
+#network {
+    color: @color13;
+}
+
+#network.disconnected, #network.disabled {
+    color: @color2;
+}
+
+#pulseaudio {
+    color: @color14;
+}
+
+#pulseaudio.muted {
+    color: @color2;
+}
+
+#wireplumber {
+    background-color: @color0;
+    color: @color5;
+}
+
+#wireplumber.muted {
+    color: @color2;
+}
+
+#mpris {
+    color: @color5;
+}
+
+#mpris.spotify {
+    color: @color11;
+}
+
+#mpris.paused {
+    color: @color2;
+}
+
+#temperature {
+    color: @color9;
+}
+
+#temperature.critical {
+    color: @color8;
+}
+
+#tray {
+    color: @color13;
+    border: 2px solid @color13;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: @color8;
+    border: 2px solid @color13;
+}
+
+#idle_inhibitor {
+    color: @color2;
+    margin-top: 16px;
+}
+
+#idle_inhibitor.activated {
+    color: @color14;
+}
+
+#language {
+    color: @color14;
+}
+
+#scratchpad {
+    color: @color14;
+    padding-bottom: 3px;
+}
+
+#scratchpad.empty {
+    color: @color2;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: @color8;
+}
+
+#privacy-item.audio-in {
+    background-color: @color10;
+}
+
+#privacy-item.audio-out {
+    background-color: @color13;
+}
+
+#custom-yearprogress {
+    color: @color5;
+}
+
+#custom-separator {
+    color: @color5;
+}

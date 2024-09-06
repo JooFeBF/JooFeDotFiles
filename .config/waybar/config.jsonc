@@ -4,7 +4,10 @@
         "id": "0",
         "position": "right",
         "spacing": 2,
-        "margin": 10,
+        "margin-top": 7,
+        "margin-bottom": 7,
+        "margin-left": 7,
+        "margin-right": 10,
         "layer": "top",
         "reload_style_on_change": true,
         "modules-left": [

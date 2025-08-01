@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("config/options")
 require("config/keymaps")
+require("autocmds")
 require("lazy").setup("plugins")
 
 local augroup = vim.api.nvim_create_augroup

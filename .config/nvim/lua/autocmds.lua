@@ -1,6 +1,12 @@
+
+-- ESLint fix on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {"*.js", "*.ts"},
-  command = "EslintFixAll",
+  pattern = {"*.js", "*.ts", "*.jsx", "*.tsx"},
+  callback = function()
+    if vim.fn.exists(":EslintFixAll") > 0 then
+      vim.cmd("EslintFixAll")
+    end
+  end,
 })
 
 -- Fix render-markdown checkbox highlight

@@ -28,7 +28,7 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "rust_analyzer",
+                "rust_analyzer", 
                 "gopls",
             },
             handlers = {
@@ -54,6 +54,8 @@ return {
                     vim.g.zig_fmt_autosave = 0
 
                 end,
+                
+                
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -103,6 +105,31 @@ return {
                 header = "",
                 prefix = "",
             },
+        })
+
+        -- Configure ESLint manually (outside mason-lspconfig)
+        local lspconfig = require("lspconfig")
+        lspconfig.eslint.setup({
+            capabilities = capabilities,
+            cmd = { "vscode-eslint-language-server", "--stdio" },
+            filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+            settings = {
+                packageManager = 'npm',
+                useESLintClass = false,
+                experimental = {
+                    useFlatConfig = false
+                },
+                codeActionOnSave = {
+                    enable = false,
+                    mode = "all"
+                },
+                format = true,
+                quiet = false,
+                onIgnoredFiles = "off",
+                rulesCustomizations = {},
+                run = "onType",
+                validate = "on"
+            }
         })
     end
 }

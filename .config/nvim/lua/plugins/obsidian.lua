@@ -9,8 +9,8 @@ return {
     opts = {
         workspaces = {
             {
-                name = "joofe's vault",
-                path = "~/JooFeVault/joofe's vault",
+                name = "joofe-vault",
+                path = "~/joofe-vault",
             },
         },
         ui = {
@@ -49,18 +49,18 @@ return {
     },
     config = function(_, opts)
         require("obsidian").setup(opts)
-        
+
         -- Git sync command similar to Obsidian Git plugin
         vim.api.nvim_create_user_command("ObsidianGitSync", function()
-            local vault_path = "~/JooFeVault/joofe\\'s\\ vault"
+            local vault_path = "~/joofe-vault"
             vim.cmd("!cd " .. vault_path .. " && git pull && git add . && git commit -m 'Auto-sync: " .. os.date("%Y-%m-%d %H:%M:%S") .. "' && git push")
         end, {})
-        
+
         -- Custom checkbox toggle that only toggles between [ ] and [x]
         vim.api.nvim_create_user_command("ToggleCheckboxX", function()
             local line = vim.api.nvim_get_current_line()
             local new_line
-            
+
             if line:match("%- %[ %]") then
                 -- Unchecked -> Checked
                 new_line = line:gsub("%- %[ %]", "- [x]")
@@ -74,7 +74,7 @@ return {
                 -- No change if not a list item
                 return
             end
-            
+
             vim.api.nvim_set_current_line(new_line)
         end, {})
     end,
